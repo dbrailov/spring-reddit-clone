@@ -1,7 +1,7 @@
 package com.springredditclone.security;
 
 import com.springredditclone.exceptions.SpringRedditException;
-import com.springredditclone.model.User;
+import org.springframework.security.core.userdetails.User;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -39,7 +39,7 @@ public class JwtProvider {
 
     private PrivateKey getPrivateKey() {
         try {
-            return (PrivateKey) keyStore.getKey("springblob", "secret".toCharArray());
+            return (PrivateKey) keyStore.getKey("springblog", "secret".toCharArray());
         } catch (KeyStoreException | NoSuchAlgorithmException | UnrecoverableKeyException e) {
             throw new SpringRedditException("Exception occurred while retrieving public key from keystore");
         }
