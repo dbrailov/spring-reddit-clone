@@ -1,5 +1,6 @@
 package com.springredditclone.controller;
 
+import com.springredditclone.dto.AuthenticationResponse;
 import com.springredditclone.dto.LoginRequest;
 import com.springredditclone.dto.RegisterRequest;
 import com.springredditclone.service.AuthService;
@@ -28,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public void login(@RequestBody LoginRequest loginRequest) {
-        authService.login(loginRequest);
+    public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
+        return authService.login(loginRequest);
     }
 }
